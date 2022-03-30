@@ -1,0 +1,3069 @@
+digraph PipelinedCPU {
+stylesheet = "styles.css"
+rankdir="LR" 
+
+subgraph cluster_PipelinedCPU {
+  label="PipelinedCPU"
+  URL=""
+  bgcolor="#FFF8DC"
+  cluster_PipelinedCPU_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_PipelinedCPU_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_PipelinedCPU_io_imem_instruction [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_imem_instruction" rank="0"]
+     
+cluster_PipelinedCPU_io_dmem_readdata [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_readdata" rank="0"]
+     
+cluster_PipelinedCPU_io_imem_address [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_imem_address" rank="1000"]
+     
+cluster_PipelinedCPU_io_dmem_address [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_address" rank="1000"]
+     
+cluster_PipelinedCPU_io_dmem_writedata [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_writedata" rank="1000"]
+     
+cluster_PipelinedCPU_io_dmem_memread [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_memread" rank="1000"]
+     
+cluster_PipelinedCPU_io_dmem_memwrite [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_memwrite" rank="1000"]
+     
+cluster_PipelinedCPU_io_dmem_maskmode [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_maskmode" rank="1000"]
+     
+cluster_PipelinedCPU_io_dmem_sext [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_sext" rank="1000"]
+     
+
+subgraph cluster_PipelinedCPU_control {
+  label="control"
+  URL="Control.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_control_io_opcode [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_opcode" rank="0"]
+     
+cluster_PipelinedCPU_control_io_branch [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_branch" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_memread [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_memread" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_toreg [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_toreg" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_add [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_add" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_memwrite [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_memwrite" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_regwrite [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_regwrite" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_immediate [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_immediate" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_alusrc1 [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_alusrc1" rank="1000"]
+     
+cluster_PipelinedCPU_control_io_jump [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_jump" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_branchCtrl {
+  label="branchCtrl"
+  URL="BranchControl.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_branchCtrl_io_branch [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_branch" rank="0"]
+     
+cluster_PipelinedCPU_branchCtrl_io_funct3 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_funct3" rank="0"]
+     
+cluster_PipelinedCPU_branchCtrl_io_inputx [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputx" rank="0"]
+     
+cluster_PipelinedCPU_branchCtrl_io_inputy [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputy" rank="0"]
+     
+cluster_PipelinedCPU_branchCtrl_io_taken [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_taken" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_registers {
+  label="registers"
+  URL="RegisterFile.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_registers_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_PipelinedCPU_registers_io_readreg1 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_readreg1" rank="0"]
+     
+cluster_PipelinedCPU_registers_io_readreg2 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_readreg2" rank="0"]
+     
+cluster_PipelinedCPU_registers_io_writereg [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_writereg" rank="0"]
+     
+cluster_PipelinedCPU_registers_io_writedata [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_writedata" rank="0"]
+     
+cluster_PipelinedCPU_registers_io_wen [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_wen" rank="0"]
+     
+cluster_PipelinedCPU_registers_io_readdata1 [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_readdata1" rank="1000"]
+     
+cluster_PipelinedCPU_registers_io_readdata2 [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_readdata2" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_aluControl {
+  label="aluControl"
+  URL="ALUControl.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_aluControl_io_add [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_add" rank="0"]
+     
+cluster_PipelinedCPU_aluControl_io_immediate [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_immediate" rank="0"]
+     
+cluster_PipelinedCPU_aluControl_io_funct7 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_funct7" rank="0"]
+     
+cluster_PipelinedCPU_aluControl_io_funct3 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_funct3" rank="0"]
+     
+cluster_PipelinedCPU_aluControl_io_operation [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_operation" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_alu {
+  label="alu"
+  URL="ALU.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_alu_io_operation [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_operation" rank="0"]
+     
+cluster_PipelinedCPU_alu_io_inputx [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputx" rank="0"]
+     
+cluster_PipelinedCPU_alu_io_inputy [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputy" rank="0"]
+     
+cluster_PipelinedCPU_alu_io_result [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_result" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_immGen {
+  label="immGen"
+  URL="ImmediateGenerator.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_immGen_io_instruction [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_instruction" rank="0"]
+     
+cluster_PipelinedCPU_immGen_io_sextImm [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_sextImm" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_pcPlusFour {
+  label="pcPlusFour"
+  URL="Adder.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_pcPlusFour_io_inputx [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputx" rank="0"]
+     
+cluster_PipelinedCPU_pcPlusFour_io_inputy [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputy" rank="0"]
+     
+cluster_PipelinedCPU_pcPlusFour_io_result [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_result" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_branchAdd {
+  label="branchAdd"
+  URL="Adder.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_branchAdd_io_inputx [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputx" rank="0"]
+     
+cluster_PipelinedCPU_branchAdd_io_inputy [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_inputy" rank="0"]
+     
+cluster_PipelinedCPU_branchAdd_io_result [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_result" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_forwarding {
+  label="forwarding"
+  URL="ForwardingUnit.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_forwarding_io_rs1 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_rs1" rank="0"]
+     
+cluster_PipelinedCPU_forwarding_io_rs2 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_rs2" rank="0"]
+     
+cluster_PipelinedCPU_forwarding_io_exmemrd [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_exmemrd" rank="0"]
+     
+cluster_PipelinedCPU_forwarding_io_exmemrw [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_exmemrw" rank="0"]
+     
+cluster_PipelinedCPU_forwarding_io_memwbrd [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_memwbrd" rank="0"]
+     
+cluster_PipelinedCPU_forwarding_io_memwbrw [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_memwbrw" rank="0"]
+     
+cluster_PipelinedCPU_forwarding_io_forwardA [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_forwardA" rank="1000"]
+     
+cluster_PipelinedCPU_forwarding_io_forwardB [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_forwardB" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_PipelinedCPU_hazard {
+  label="hazard"
+  URL="HazardUnit.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_PipelinedCPU_hazard_io_rs1 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_rs1" rank="0"]
+     
+cluster_PipelinedCPU_hazard_io_rs2 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_rs2" rank="0"]
+     
+cluster_PipelinedCPU_hazard_io_idex_memread [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_idex_memread" rank="0"]
+     
+cluster_PipelinedCPU_hazard_io_idex_rd [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_idex_rd" rank="0"]
+     
+cluster_PipelinedCPU_hazard_io_exmem_taken [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_exmem_taken" rank="0"]
+     
+cluster_PipelinedCPU_hazard_io_pcwrite [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_pcwrite" rank="1000"]
+     
+cluster_PipelinedCPU_hazard_io_ifid_bubble [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_ifid_bubble" rank="1000"]
+     
+cluster_PipelinedCPU_hazard_io_idex_bubble [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_idex_bubble" rank="1000"]
+     
+cluster_PipelinedCPU_hazard_io_exmem_bubble [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_exmem_bubble" rank="1000"]
+     
+cluster_PipelinedCPU_hazard_io_ifid_flush [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_ifid_flush" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+struct_cluster_PipelinedCPU_pc [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>pc</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_if_id_instruction [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>if_id_instruction</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_if_id_pc [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>if_id_pc</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_if_id_pcplusfour [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>if_id_pcplusfour</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_writereg [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_writereg</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_funct7 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_funct7</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_funct3 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_funct3</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_imm [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_imm</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_readdata2 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_readdata2</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_readdata1 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_readdata1</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_pc [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_pc</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_pcplusfour [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_pcplusfour</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_excontrol_add [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_excontrol_add</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_excontrol_immediate [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_excontrol_immediate</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_excontrol_alusrc1 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_excontrol_alusrc1</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_excontrol_branch [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_excontrol_branch</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_excontrol_jump [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_excontrol_jump</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_mcontrol_memread [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_mcontrol_memread</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_mcontrol_memwrite [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_mcontrol_memwrite</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_mcontrol_maskmode [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_mcontrol_maskmode</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_mcontrol_sext [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_mcontrol_sext</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_wbcontrol_toreg [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_wbcontrol_toreg</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_wbcontrol_regwrite [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_wbcontrol_regwrite</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_rs1 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_rs1</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_rs2 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_rs2</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_id_ex_branchpc [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>id_ex_branchpc</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_writereg [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_writereg</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_readdata2 [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_readdata2</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_aluresult [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_aluresult</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_nextpc [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_nextpc</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_pcplusfour [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_pcplusfour</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_mcontrol_memread [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_mcontrol_memread</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_mcontrol_memwrite [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_mcontrol_memwrite</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_mcontrol_taken [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_mcontrol_taken</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_mcontrol_maskmode [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_mcontrol_maskmode</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_mcontrol_sext [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_mcontrol_sext</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_wbcontrol_toreg [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_wbcontrol_toreg</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_ex_mem_wbcontrol_regwrite [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>ex_mem_wbcontrol_regwrite</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_mem_wb_writereg [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>mem_wb_writereg</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_mem_wb_aluresult [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>mem_wb_aluresult</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_mem_wb_readdata [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>mem_wb_readdata</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_mem_wb_pcplusfour [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>mem_wb_pcplusfour</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>mem_wb_wbcontrol_toreg</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_mem_wb_wbcontrol_regwrite [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>mem_wb_wbcontrol_regwrite</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_bpCorrect [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>bpCorrect</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+struct_cluster_PipelinedCPU_bpIncorrect [shape="plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFE4B5">
+  <TR>
+    <TD PORT="in">&#x25cf;</TD>
+    <TD>bpIncorrect</TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+cluster_PipelinedCPU_id_next_pc [label = "id_next_pc" shape="rectangle"]; 
+cluster_PipelinedCPU_rs1 [label = "rs1" shape="rectangle"]; 
+
+op_bits_372 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(19, 15)</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_PipelinedCPU_rs2 [label = "rs2" shape="rectangle"]; 
+
+op_bits_373 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(24, 20)</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_PipelinedCPU_write_data [label = "write_data" shape="rectangle"]; 
+
+mux_251349554 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_374 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1141780294 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_375 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_412121687 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_376 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_PipelinedCPU_forward_inputx [label = "forward_inputx" shape="rectangle"]; 
+
+mux_1723388375 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_377 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1078560000 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_378 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2120392406 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_379 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_PipelinedCPU_forward_inputy [label = "forward_inputy" shape="rectangle"]; 
+
+mux_674594227 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_380 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1015020858 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_381 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1132795505 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_382 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_308404163 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_612120255 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_383 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_581015818 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_384 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1355001892 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_385 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_9183550 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_386 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">3</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_387 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(6, 0)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1723388375 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_388 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1078560000 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_389 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2120392406 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_390 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_674594227 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_391 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1015020858 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_392 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1132795505 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_393 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_394 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(19, 15)</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_395 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(24, 20)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_251349554 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_396 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1141780294 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_397 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_412121687 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_398 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">2</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_399 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_neq_400 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > neq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2034830319 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_401 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_292519903 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_402 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">1</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1702447620 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+cluster_PipelinedCPU_lit403 [shape="circle" style="filled" BGCOLOR="#C0C0C0" label="4"]
+     
+
+op_bits_404 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(19, 15)</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_405 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(24, 20)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_849092923 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1749299806 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1749179519 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_406 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1634106711 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1530367878 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1398681571 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_407 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1365445641 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_895608531 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_908004973 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_408 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_293964848 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_409 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(11, 7)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_894566602 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_410 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(31, 25)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1806829847 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_411 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(14, 12)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_632221930 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_931797570 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_555593751 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_465545494 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1387492314 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_147126344 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_883297241 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2074202973 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1202847091 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1059336541 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_70974407 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1377613192 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_287963903 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1704619518 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_993480906 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_901610269 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_883404536 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_104909477 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1258230377 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2027979493 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_21160552 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_412 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(13, 12)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_352330918 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1863252512 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_413 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_414 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(14, 14)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_642610144 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2016476682 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1850134577 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_720404306 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1020777658 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2098775771 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1550918573 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1783605762 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_627998143 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1297077321 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_912045645 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_827246584 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_415 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(1, 1)</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2068310693 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_416 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_417 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(0, 0)</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_418 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">4294967294</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_189562754 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_302343984 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_258541963 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1989164085 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_604474292 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1987221 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_562991453 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_968931319 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_or_419 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_bits_420 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > bits </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>(1, 1)</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_421 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1573618291 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1912551867 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_382163660 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1331696556 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1310940186 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1187925449 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1505082718 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1865159729 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_784918208 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_11949259 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1213721986 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1883402686 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1985906195 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1653648582 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_418017348 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1093519292 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_422 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_423 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1842060336 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_424 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_tail_425 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > tail </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>1</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_add_426 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > add </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_309431878 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1364087822 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_427 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_428 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1745315941 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_not_429 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD > not </TD>
+    <TD PORT="out">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_tail_430 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > tail </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD>1</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_add_431 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > add </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">1</TD>
+  </TR>
+</TABLE>>];
+       
+
+  struct_cluster_PipelinedCPU_ex_mem_pcplusfour:out -> mux_1883402686:in2
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_1863252512:select
+  mux_562991453:out -> struct_cluster_PipelinedCPU_ex_mem_mcontrol_taken:in
+  struct_cluster_PipelinedCPU_if_id_pc:out -> mux_1398681571:in2
+  mux_1749179519:out -> mux_1749299806:in2
+  mux_352330918:out -> struct_cluster_PipelinedCPU_id_ex_mcontrol_sext:in
+  mux_1530367878:out -> mux_1634106711:in2
+  op_not_424:out -> mux_1842060336:select
+  struct_cluster_PipelinedCPU_if_id_pc:out -> mux_465545494:in2
+  struct_cluster_PipelinedCPU_pc:out -> cluster_PipelinedCPU_io_imem_address
+  cluster_PipelinedCPU_hazard_io_ifid_flush -> mux_895608531:select
+  cluster_PipelinedCPU_reset -> mux_1387492314:select
+  mux_1723388375:out -> cluster_PipelinedCPU_forward_inputx
+  struct_cluster_PipelinedCPU_ex_mem_mcontrol_memwrite:out -> cluster_PipelinedCPU_io_dmem_memwrite
+  op_bits_415:out -> mux_827246584:select
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_1331696556:select
+  struct_cluster_PipelinedCPU_id_ex_branchpc:out -> mux_189562754:in1
+  mux_1863252512:out -> mux_352330918:in2
+  cluster_PipelinedCPU_control_io_alusrc1 -> mux_70974407:in2
+  mux_251349554:out -> cluster_PipelinedCPU_write_data
+  op_eq_397:out -> mux_1141780294:select
+  mux_2098775771:out -> struct_cluster_PipelinedCPU_id_ex_rs2:in
+  cluster_PipelinedCPU_hazard_io_pcwrite -> op_eq_386:in1
+  mux_21160552:out -> mux_2027979493:in2
+  struct_cluster_PipelinedCPU_id_ex_pcplusfour:out -> mux_302343984:in2
+  cluster_PipelinedCPU_branchCtrl_io_taken -> op_not_424:in1
+  op_not_429:out -> mux_1745315941:select
+  op_bits_404:out -> cluster_PipelinedCPU_hazard_io_rs1
+  op_eq_383:out -> mux_612120255:select
+  mux_292519903:out -> mux_2034830319:in2
+  mux_1842060336:out -> mux_1093519292:in1
+  cluster_PipelinedCPU_hazard_io_ifid_bubble -> op_not_406:in1
+  op_bits_412:out -> mux_21160552:in2
+  struct_cluster_PipelinedCPU_id_ex_imm:out -> mux_1702447620:in1
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> op_not_428:in1
+  cluster_PipelinedCPU_hazard_io_pcwrite -> op_eq_383:in1
+  cluster_PipelinedCPU_reset -> mux_784918208:select
+  struct_cluster_PipelinedCPU_id_ex_funct7:out -> cluster_PipelinedCPU_aluControl_io_funct7
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_287963903:select
+  op_neq_400:out -> op_and_399:in2
+  mux_1634106711:out -> struct_cluster_PipelinedCPU_if_id_pc:in
+  mux_1723388375:out -> cluster_PipelinedCPU_branchCtrl_io_inputx
+  cluster_PipelinedCPU_reset -> mux_2098775771:select
+  op_not_416:out -> mux_2068310693:select
+  cluster_PipelinedCPU_control_io_jump -> mux_993480906:in2
+  mux_2016476682:out -> mux_642610144:in2
+  mux_642610144:out -> struct_cluster_PipelinedCPU_id_ex_wbcontrol_toreg:in
+  cluster_PipelinedCPU_reset -> mux_1550918573:select
+  op_not_413:out -> mux_1863252512:in2
+  mux_412121687:out -> mux_1141780294:in2
+  mux_309431878:out -> struct_cluster_PipelinedCPU_bpIncorrect:in
+  cluster_PipelinedCPU_forwarding_io_forwardB -> op_eq_392:in1
+  op_bits_394:out -> cluster_PipelinedCPU_registers_io_readreg1
+  struct_cluster_PipelinedCPU_id_ex_readdata2:out -> mux_674594227:in1
+  struct_cluster_PipelinedCPU_id_ex_rs2:out -> cluster_PipelinedCPU_forwarding_io_rs2
+  op_bits_372:out -> cluster_PipelinedCPU_rs1
+  struct_cluster_PipelinedCPU_id_ex_readdata1:out -> mux_1723388375:in1
+  cluster_PipelinedCPU_reset -> mux_1634106711:select
+  cluster_PipelinedCPU_pcPlusFour_io_result -> mux_612120255:in1
+  struct_cluster_PipelinedCPU_mem_wb_writereg:out -> cluster_PipelinedCPU_forwarding_io_memwbrd
+  cluster_PipelinedCPU_control_io_immediate -> mux_1202847091:in2
+  struct_cluster_PipelinedCPU_mem_wb_pcplusfour:out -> mux_412121687:in1
+  op_tail_430:out -> mux_1745315941:in2
+  cluster_PipelinedCPU_write_data -> mux_1132795505:in1
+  struct_cluster_PipelinedCPU_id_ex_wbcontrol_toreg:out -> mux_1187925449:in2
+  mux_883297241:out -> mux_147126344:in2
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_993480906:select
+  struct_cluster_PipelinedCPU_ex_mem_mcontrol_sext:out -> cluster_PipelinedCPU_io_dmem_sext
+  cluster_PipelinedCPU_reset -> mux_1653648582:select
+  struct_cluster_PipelinedCPU_id_ex_mcontrol_memread:out -> mux_1989164085:in2
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_21160552:select
+  struct_cluster_PipelinedCPU_if_id_pcplusfour:out -> mux_1387492314:in2
+  op_eq_393:out -> mux_1132795505:select
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> cluster_PipelinedCPU_immGen_io_instruction
+  cluster_PipelinedCPU_reset -> mux_901610269:select
+  mux_1364087822:out -> mux_309431878:in2
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:out -> op_eq_396:in1
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_394:in1
+  mux_189562754:out -> mux_827246584:in2
+  mux_2027979493:out -> struct_cluster_PipelinedCPU_id_ex_mcontrol_maskmode:in
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:out -> op_eq_374:in1
+  cluster_PipelinedCPU_reset -> mux_147126344:select
+  cluster_PipelinedCPU_reset -> mux_1377613192:select
+  cluster_PipelinedCPU_registers_io_writereg -> op_neq_400:in1
+  struct_cluster_PipelinedCPU_ex_mem_aluresult:out -> mux_1015020858:in1
+  cluster_PipelinedCPU_immGen_io_sextImm -> cluster_PipelinedCPU_branchAdd_io_inputy
+  cluster_PipelinedCPU_reset -> mux_293964848:select
+  cluster_PipelinedCPU_branchCtrl_io_taken -> op_not_429:in1
+  mux_302343984:out -> struct_cluster_PipelinedCPU_ex_mem_pcplusfour:in
+  struct_cluster_PipelinedCPU_ex_mem_wbcontrol_regwrite:out -> cluster_PipelinedCPU_forwarding_io_exmemrw
+  cluster_PipelinedCPU_reset -> mux_562991453:select
+  cluster_PipelinedCPU_forwarding_io_forwardB -> op_eq_393:in1
+  cluster_PipelinedCPU_reset -> mux_912045645:select
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_883404536:select
+  cluster_PipelinedCPU_io_imem_instruction -> mux_1749179519:in1
+  cluster_PipelinedCPU_hazard_io_ifid_flush -> mux_1749299806:select
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_2016476682:select
+  struct_cluster_PipelinedCPU_id_ex_excontrol_jump:out -> op_bits_417:in1
+  op_bits_417:out -> op_not_416:in1
+  struct_cluster_PipelinedCPU_id_ex_mcontrol_memwrite:out -> mux_1987221:in2
+  struct_cluster_PipelinedCPU_id_ex_mcontrol_memread:out -> cluster_PipelinedCPU_hazard_io_idex_memread
+  cluster_PipelinedCPU_forwarding_io_forwardA -> op_eq_378:in1
+  op_and_418:out -> mux_2068310693:in2
+  op_bits_420:out -> op_or_419:in1
+  struct_cluster_PipelinedCPU_id_ex_excontrol_branch:out -> op_and_427:in1
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_404:in1
+  struct_cluster_PipelinedCPU_bpIncorrect:out -> mux_1364087822:in2
+  mux_931797570:out -> struct_cluster_PipelinedCPU_id_ex_readdata2:in
+  mux_827246584:out -> mux_912045645:in2
+  op_eq_392:out -> mux_1015020858:select
+  op_and_422:out -> mux_1093519292:select
+  mux_1985906195:out -> struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:in
+  op_and_427:out -> mux_1364087822:select
+  mux_308404163:out -> struct_cluster_PipelinedCPU_pc:in
+  op_eq_401:out -> mux_2034830319:select
+  cluster_PipelinedCPU_forward_inputy -> mux_627998143:in2
+  mux_251349554:out -> cluster_PipelinedCPU_registers_io_writedata
+  cluster_PipelinedCPU_control_io_regwrite -> mux_720404306:in2
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:out -> op_eq_397:in1
+  mux_2120392406:out -> mux_1078560000:in2
+  struct_cluster_PipelinedCPU_id_ex_writereg:out -> mux_1783605762:in2
+  struct_cluster_PipelinedCPU_id_ex_pc:out -> mux_292519903:in2
+  struct_cluster_PipelinedCPU_ex_mem_mcontrol_taken:out -> cluster_PipelinedCPU_hazard_io_exmem_taken
+  cluster_PipelinedCPU_reset -> mux_1806829847:select
+  cluster_PipelinedCPU_reset -> mux_894566602:select
+  struct_cluster_PipelinedCPU_bpCorrect:out -> mux_1842060336:in2
+  cluster_PipelinedCPU_forwarding_io_forwardB -> op_eq_380:in1
+  mux_1398681571:out -> mux_1530367878:in2
+  struct_cluster_PipelinedCPU_pc:out -> mux_1398681571:in1
+  mux_1573618291:out -> struct_cluster_PipelinedCPU_ex_mem_mcontrol_maskmode:in
+  cluster_PipelinedCPU_hazard_io_pcwrite -> op_eq_384:in1
+  cluster_PipelinedCPU_reset -> mux_1783605762:select
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_1258230377:select
+  cluster_PipelinedCPU_reset -> mux_104909477:select
+  cluster_PipelinedCPU_control_io_memread -> mux_883404536:in2
+  op_eq_389:out -> mux_1078560000:select
+  op_eq_402:out -> mux_292519903:select
+  cluster_PipelinedCPU_reset -> mux_632221930:select
+  cluster_PipelinedCPU_reset -> mux_1985906195:select
+  mux_1850134577:out -> struct_cluster_PipelinedCPU_id_ex_wbcontrol_regwrite:in
+  cluster_PipelinedCPU_control_io_add -> mux_883297241:in2
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_1987221:select
+  struct_cluster_PipelinedCPU_id_ex_funct3:out -> cluster_PipelinedCPU_aluControl_io_funct3
+  mux_1141780294:out -> mux_251349554:in2
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_372:in1
+  mux_1093519292:out -> mux_418017348:in2
+  struct_cluster_PipelinedCPU_ex_mem_writereg:out -> mux_784918208:in2
+  cluster_PipelinedCPU_reset -> mux_849092923:select
+  mux_287963903:out -> mux_1377613192:in2
+  mux_418017348:out -> struct_cluster_PipelinedCPU_bpCorrect:in
+  mux_1987221:out -> mux_604474292:in2
+  struct_cluster_PipelinedCPU_id_ex_mcontrol_sext:out -> mux_1331696556:in2
+  mux_465545494:out -> struct_cluster_PipelinedCPU_id_ex_pc:in
+  struct_cluster_PipelinedCPU_id_ex_excontrol_immediate:out -> mux_1702447620:select
+  cluster_PipelinedCPU_hazard_io_ifid_bubble -> op_not_407:in1
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_1912551867:select
+  struct_cluster_PipelinedCPU_ex_mem_mcontrol_maskmode:out -> cluster_PipelinedCPU_io_dmem_maskmode
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_regwrite:out -> op_and_399:in1
+  struct_cluster_PipelinedCPU_id_ex_excontrol_branch:out -> cluster_PipelinedCPU_branchCtrl_io_branch
+  struct_cluster_PipelinedCPU_id_ex_excontrol_branch:out -> op_and_421:in2
+  struct_cluster_PipelinedCPU_ex_mem_wbcontrol_regwrite:out -> mux_1653648582:in2
+  cluster_PipelinedCPU_lit403 -> cluster_PipelinedCPU_pcPlusFour_io_inputy
+  mux_1059336541:out -> struct_cluster_PipelinedCPU_id_ex_excontrol_alusrc1:in
+  mux_1297077321:out -> struct_cluster_PipelinedCPU_ex_mem_aluresult:in
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_410:in1
+  cluster_PipelinedCPU_forwarding_io_forwardA -> op_eq_388:in1
+  cluster_PipelinedCPU_forward_inputx -> mux_2034830319:in1
+  cluster_PipelinedCPU_reset -> mux_2027979493:select
+  cluster_PipelinedCPU_alu_io_result -> op_and_418:in1
+  struct_cluster_PipelinedCPU_id_ex_branchpc:out -> mux_2068310693:in1
+  cluster_PipelinedCPU_branchAdd_io_result -> cluster_PipelinedCPU_id_next_pc
+  cluster_PipelinedCPU_reset -> mux_627998143:select
+  cluster_PipelinedCPU_registers_io_readdata2 -> mux_931797570:in2
+  mux_1704619518:out -> struct_cluster_PipelinedCPU_id_ex_excontrol_jump:in
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_968931319:select
+  cluster_PipelinedCPU_reset -> mux_1883402686:select
+  op_bits_410:out -> mux_894566602:in2
+  struct_cluster_PipelinedCPU_ex_mem_aluresult:out -> mux_11949259:in2
+  mux_1365445641:out -> struct_cluster_PipelinedCPU_if_id_pcplusfour:in
+  cluster_PipelinedCPU_alu_io_result -> mux_1297077321:in2
+  op_eq_396:out -> mux_251349554:select
+  mux_293964848:out -> struct_cluster_PipelinedCPU_id_ex_writereg:in
+  cluster_PipelinedCPU_reset -> mux_1573618291:select
+  mux_883404536:out -> mux_901610269:in2
+  mux_104909477:out -> struct_cluster_PipelinedCPU_id_ex_mcontrol_memwrite:in
+  struct_cluster_PipelinedCPU_if_id_pcplusfour:out -> mux_908004973:in2
+  struct_cluster_PipelinedCPU_bpIncorrect:out -> op_add_431:in1
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_414:in1
+  mux_1653648582:out -> struct_cluster_PipelinedCPU_mem_wb_wbcontrol_regwrite:in
+  struct_cluster_PipelinedCPU_id_ex_wbcontrol_regwrite:out -> mux_1865159729:in2
+  cluster_PipelinedCPU_reset -> mux_931797570:select
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_1989164085:select
+  cluster_PipelinedCPU_reset -> mux_1297077321:select
+  struct_cluster_PipelinedCPU_id_ex_rs1:out -> cluster_PipelinedCPU_forwarding_io_rs1
+  cluster_PipelinedCPU_forwarding_io_forwardA -> op_eq_390:in1
+  struct_cluster_PipelinedCPU_ex_mem_aluresult:out -> mux_1078560000:in1
+  op_bits_414:out -> op_not_413:in1
+  mux_895608531:out -> mux_1365445641:in2
+  mux_1020777658:out -> struct_cluster_PipelinedCPU_id_ex_rs1:in
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_395:in1
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_720404306:select
+  struct_cluster_PipelinedCPU_mem_wb_readdata:out -> mux_1141780294:in1
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:out -> op_eq_375:in1
+  cluster_PipelinedCPU_reset -> mux_465545494:select
+  struct_cluster_PipelinedCPU_ex_mem_mcontrol_memread:out -> cluster_PipelinedCPU_io_dmem_memread
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_1202847091:select
+  cluster_PipelinedCPU_aluControl_io_operation -> cluster_PipelinedCPU_alu_io_operation
+  op_tail_425:out -> mux_1842060336:in1
+  struct_cluster_PipelinedCPU_bpCorrect:out -> op_add_426:in1
+  cluster_PipelinedCPU_reset -> mux_308404163:select
+  mux_1702447620:out -> cluster_PipelinedCPU_alu_io_inputy
+  struct_cluster_PipelinedCPU_bpIncorrect:out -> mux_1745315941:in1
+  mux_1187925449:out -> mux_1310940186:in2
+  mux_627998143:out -> struct_cluster_PipelinedCPU_ex_mem_readdata2:in
+  op_bits_409:out -> mux_293964848:in2
+  op_not_423:out -> op_and_422:in2
+  mux_1883402686:out -> struct_cluster_PipelinedCPU_mem_wb_pcplusfour:in
+  op_add_431:out -> op_tail_430:in1
+  cluster_PipelinedCPU_control_io_branch -> mux_287963903:in2
+  cluster_PipelinedCPU_reset -> mux_11949259:select
+  mux_849092923:out -> struct_cluster_PipelinedCPU_if_id_instruction:in
+  op_eq_384:out -> mux_581015818:select
+  cluster_PipelinedCPU_reset -> mux_642610144:select
+  struct_cluster_PipelinedCPU_id_ex_funct3:out -> cluster_PipelinedCPU_branchCtrl_io_funct3
+  struct_cluster_PipelinedCPU_ex_mem_writereg:out -> cluster_PipelinedCPU_forwarding_io_exmemrd
+  mux_9183550:out -> mux_1355001892:in2
+  op_not_407:out -> mux_1398681571:select
+  cluster_PipelinedCPU_control_io_memwrite -> mux_1258230377:in2
+  mux_11949259:out -> struct_cluster_PipelinedCPU_mem_wb_aluresult:in
+  cluster_PipelinedCPU_forwarding_io_forwardA -> op_eq_379:in1
+  cluster_PipelinedCPU_registers_io_readdata1 -> mux_555593751:in2
+  mux_1865159729:out -> mux_1505082718:in2
+  cluster_PipelinedCPU_control_io_toreg -> mux_2016476682:in2
+  struct_cluster_PipelinedCPU_if_id_pc:out -> cluster_PipelinedCPU_branchAdd_io_inputx
+  cluster_PipelinedCPU_reset -> mux_1365445641:select
+  struct_cluster_PipelinedCPU_id_ex_excontrol_alusrc1:out -> op_eq_401:in2
+  struct_cluster_PipelinedCPU_mem_wb_aluresult:out -> mux_251349554:in1
+  mux_1749299806:out -> mux_849092923:in2
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_1865159729:select
+  mux_2068310693:out -> mux_827246584:in1
+  cluster_PipelinedCPU_rs1 -> mux_1020777658:in2
+  cluster_PipelinedCPU_branchCtrl_io_taken -> mux_189562754:select
+  cluster_PipelinedCPU_reset -> mux_1213721986:select
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_405:in1
+  cluster_PipelinedCPU_reset -> mux_2074202973:select
+  cluster_PipelinedCPU_forwarding_io_forwardB -> op_eq_381:in1
+  mux_2074202973:out -> struct_cluster_PipelinedCPU_id_ex_excontrol_immediate:in
+  cluster_PipelinedCPU_branchCtrl_io_taken -> op_and_421:in1
+  struct_cluster_PipelinedCPU_mem_wb_writereg:out -> cluster_PipelinedCPU_registers_io_writereg
+  op_bits_387:out -> cluster_PipelinedCPU_control_io_opcode
+  struct_cluster_PipelinedCPU_ex_mem_readdata2:out -> cluster_PipelinedCPU_io_dmem_writedata
+  mux_993480906:out -> mux_1704619518:in2
+  op_bits_411:out -> mux_1806829847:in2
+  struct_cluster_PipelinedCPU_id_ex_excontrol_jump:out -> op_bits_420:in1
+  cluster_PipelinedCPU_reset -> mux_258541963:select
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:out -> op_eq_398:in1
+  op_not_408:out -> mux_908004973:select
+  struct_cluster_PipelinedCPU_id_ex_excontrol_add:out -> cluster_PipelinedCPU_aluControl_io_add
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_70974407:select
+  mux_912045645:out -> struct_cluster_PipelinedCPU_ex_mem_nextpc:in
+  cluster_PipelinedCPU_io_dmem_readdata -> mux_1213721986:in2
+  mux_1745315941:out -> mux_1364087822:in1
+  mux_674594227:out -> cluster_PipelinedCPU_branchCtrl_io_inputy
+  mux_1355001892:out -> mux_581015818:in2
+  mux_70974407:out -> mux_1059336541:in2
+  cluster_PipelinedCPU_reset -> mux_1020777658:select
+  mux_1550918573:out -> struct_cluster_PipelinedCPU_id_ex_branchpc:in
+  cluster_PipelinedCPU_reset -> mux_604474292:select
+  cluster_PipelinedCPU_forward_inputy -> mux_1702447620:in2
+  cluster_PipelinedCPU_reset -> mux_352330918:select
+  mux_1387492314:out -> struct_cluster_PipelinedCPU_id_ex_pcplusfour:in
+  cluster_PipelinedCPU_hazard_io_pcwrite -> op_eq_385:in1
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_373:in1
+  struct_cluster_PipelinedCPU_id_ex_excontrol_alusrc1:out -> op_eq_402:in2
+  op_not_406:out -> mux_1749179519:select
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_409:in1
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> op_not_423:in1
+  mux_908004973:out -> mux_895608531:in2
+  struct_cluster_PipelinedCPU_id_ex_writereg:out -> cluster_PipelinedCPU_hazard_io_idex_rd
+  mux_604474292:out -> struct_cluster_PipelinedCPU_ex_mem_mcontrol_memwrite:in
+  cluster_PipelinedCPU_hazard_io_ifid_bubble -> op_not_408:in1
+  cluster_PipelinedCPU_reset -> mux_1505082718:select
+  op_eq_391:out -> mux_674594227:select
+  mux_1912551867:out -> mux_1573618291:in2
+  mux_258541963:out -> struct_cluster_PipelinedCPU_ex_mem_mcontrol_memread:in
+  op_eq_398:out -> mux_412121687:select
+  cluster_PipelinedCPU_hazard_io_idex_bubble -> mux_883297241:select
+  mux_1078560000:out -> mux_1723388375:in2
+  mux_1015020858:out -> mux_674594227:in2
+  op_eq_386:out -> mux_9183550:select
+  cluster_PipelinedCPU_reset -> mux_1850134577:select
+  cluster_PipelinedCPU_id_next_pc -> mux_9183550:in1
+  mux_1310940186:out -> struct_cluster_PipelinedCPU_ex_mem_wbcontrol_toreg:in
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_411:in1
+  cluster_PipelinedCPU_hazard_io_exmem_bubble -> mux_1187925449:select
+  cluster_PipelinedCPU_clock -> cluster_PipelinedCPU_registers_clock
+  mux_581015818:out -> mux_612120255:in2
+  op_eq_388:out -> mux_1723388375:select
+  mux_1202847091:out -> mux_2074202973:in2
+  cluster_PipelinedCPU_forwarding_io_forwardA -> op_eq_389:in1
+  mux_1505082718:out -> struct_cluster_PipelinedCPU_ex_mem_wbcontrol_regwrite:in
+  op_add_426:out -> op_tail_425:in1
+  struct_cluster_PipelinedCPU_mem_wb_aluresult:out -> mux_412121687:in2
+  op_bits_395:out -> cluster_PipelinedCPU_registers_io_readreg2
+  struct_cluster_PipelinedCPU_id_ex_pcplusfour:out -> mux_189562754:in2
+  cluster_PipelinedCPU_forwarding_io_forwardB -> op_eq_391:in1
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_toreg:out -> op_eq_376:in1
+  cluster_PipelinedCPU_branchAdd_io_result -> mux_1550918573:in2
+  mux_784918208:out -> struct_cluster_PipelinedCPU_mem_wb_writereg:in
+  struct_cluster_PipelinedCPU_id_ex_excontrol_jump:out -> op_bits_415:in1
+  mux_555593751:out -> struct_cluster_PipelinedCPU_id_ex_readdata1:in
+  mux_674594227:out -> cluster_PipelinedCPU_forward_inputy
+  struct_cluster_PipelinedCPU_ex_mem_aluresult:out -> cluster_PipelinedCPU_io_dmem_address
+  mux_1258230377:out -> mux_104909477:in2
+  op_or_419:out -> mux_968931319:in2
+  cluster_PipelinedCPU_rs2 -> mux_2098775771:in2
+  cluster_PipelinedCPU_hazard_io_ifid_flush -> mux_1530367878:select
+  struct_cluster_PipelinedCPU_pc:out -> cluster_PipelinedCPU_pcPlusFour_io_inputx
+  cluster_PipelinedCPU_reset -> mux_382163660:select
+  mux_1132795505:out -> mux_1015020858:in2
+  mux_1213721986:out -> struct_cluster_PipelinedCPU_mem_wb_readdata:in
+  mux_1989164085:out -> mux_258541963:in2
+  struct_cluster_PipelinedCPU_bpCorrect:out -> mux_1093519292:in2
+  cluster_PipelinedCPU_immGen_io_sextImm -> mux_632221930:in2
+  cluster_PipelinedCPU_reset -> mux_309431878:select
+  mux_2034830319:out -> cluster_PipelinedCPU_alu_io_inputx
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> mux_1749179519:in2
+  cluster_PipelinedCPU_reset -> mux_1310940186:select
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_412:in1
+  mux_901610269:out -> struct_cluster_PipelinedCPU_id_ex_mcontrol_memread:in
+  mux_147126344:out -> struct_cluster_PipelinedCPU_id_ex_excontrol_add:in
+  op_and_421:out -> op_or_419:in2
+  cluster_PipelinedCPU_reset -> mux_302343984:select
+  cluster_PipelinedCPU_reset -> mux_418017348:select
+  cluster_PipelinedCPU_pcPlusFour_io_result -> mux_908004973:in1
+  struct_cluster_PipelinedCPU_ex_mem_wbcontrol_toreg:out -> mux_1985906195:in2
+  mux_1783605762:out -> struct_cluster_PipelinedCPU_ex_mem_writereg:in
+  struct_cluster_PipelinedCPU_ex_mem_nextpc:out -> mux_581015818:in1
+  cluster_PipelinedCPU_reset -> mux_1704619518:select
+  op_eq_390:out -> mux_2120392406:select
+  op_bits_405:out -> cluster_PipelinedCPU_hazard_io_rs2
+  op_and_399:out -> cluster_PipelinedCPU_registers_io_wen
+  struct_cluster_PipelinedCPU_id_ex_excontrol_immediate:out -> cluster_PipelinedCPU_aluControl_io_immediate
+  struct_cluster_PipelinedCPU_if_id_instruction:out -> op_bits_387:in1
+  mux_968931319:out -> mux_562991453:in2
+  mux_720404306:out -> mux_1850134577:in2
+  op_not_428:out -> op_and_427:in2
+  cluster_PipelinedCPU_reset -> mux_1059336541:select
+  op_bits_373:out -> cluster_PipelinedCPU_rs2
+  mux_1806829847:out -> struct_cluster_PipelinedCPU_id_ex_funct3:in
+  cluster_PipelinedCPU_forwarding_io_forwardB -> op_eq_382:in1
+  cluster_PipelinedCPU_write_data -> mux_2120392406:in1
+  mux_894566602:out -> struct_cluster_PipelinedCPU_id_ex_funct7:in
+  struct_cluster_PipelinedCPU_mem_wb_wbcontrol_regwrite:out -> cluster_PipelinedCPU_forwarding_io_memwbrw
+  mux_382163660:out -> struct_cluster_PipelinedCPU_ex_mem_mcontrol_sext:in
+  mux_632221930:out -> struct_cluster_PipelinedCPU_id_ex_imm:in
+  mux_612120255:out -> mux_308404163:in2
+  struct_cluster_PipelinedCPU_id_ex_mcontrol_maskmode:out -> mux_1912551867:in2
+  mux_1331696556:out -> mux_382163660:in2
+  op_eq_385:out -> mux_1355001892:select
+  mux_1377613192:out -> struct_cluster_PipelinedCPU_id_ex_excontrol_branch:in
+  struct_cluster_PipelinedCPU_id_ex_excontrol_branch:out -> op_and_422:in1
+  struct_cluster_PipelinedCPU_pc:out -> mux_1355001892:in1
+  cluster_PipelinedCPU_forwarding_io_forwardA -> op_eq_377:in1
+  cluster_PipelinedCPU_reset -> mux_555593751:select
+  
+  
+}
+     
+}

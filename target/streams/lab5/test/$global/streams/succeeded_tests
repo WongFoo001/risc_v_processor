@@ -1,0 +1,13 @@
+#Successful Tests
+#Mon May 18 09:53:02 PDT 2020
+dinocpu.ALUControlTesterLab5=1589820782400
+dinocpu.RTypeMultiCycleTesterLab5=1589818123663
+dinocpu.MemoryMultiCycleTesterLab5=1589818108407
+dinocpu.ITypeMultiCycleTesterLab5=1589818108405
+dinocpu.JumpTesterLab5=1589818114021
+dinocpu.BranchTesterLab5=1589818133947
+dinocpu.ITypeTesterLab5=1589818125085
+dinocpu.MemoryTesterLab5=1589818125359
+dinocpu.RTypeTesterLab5=1589818129499
+dinocpu.ApplicationsTesterLab5=1589818128558
+dinocpu.UTypeTesterLab5=1589818119262

@@ -1,0 +1,87 @@
+circuit Booth8Cycle :
+  module Booth8Cycle :
+    input clock : Clock
+    input reset : UInt<1>
+    input io_multiplicand : UInt<16>
+    input io_multiplier : UInt<16>
+    input io_reset : UInt<1>
+    output io_finished : UInt<1>
+    output io_product : UInt<32>
+  
+    reg mf_upper : UInt<16>, clock with :
+      reset => (UInt<1>("h0"), mf_upper) @[Booth8Cycle.scala 23:20]
+    reg mf_lower : UInt<16>, clock with :
+      reset => (UInt<1>("h0"), mf_lower) @[Booth8Cycle.scala 23:20]
+    reg mf_last : UInt<1>, clock with :
+      reset => (UInt<1>("h0"), mf_last) @[Booth8Cycle.scala 23:20]
+    reg mcd : UInt<16>, clock with :
+      reset => (UInt<1>("h0"), mcd) @[Booth8Cycle.scala 26:29]
+    reg mpl : UInt<16>, clock with :
+      reset => (UInt<1>("h0"), mpl) @[Booth8Cycle.scala 27:29]
+    reg iter : UInt<4>, clock with :
+      reset => (UInt<1>("h0"), iter) @[Booth8Cycle.scala 28:35]
+    node _T_1 = cat(mf_upper, mf_lower) @[Cat.scala 29:58]
+    node _T_2 = leq(iter, UInt<4>("h8")) @[Booth8Cycle.scala 46:16]
+    node _T_3 = bits(mf_lower, 1, 0) @[Booth8Cycle.scala 47:35]
+    node _T_4 = cat(_T_3, mf_last) @[Cat.scala 29:58]
+    node _T_5 = eq(UInt<1>("h0"), _T_4) @[Conditional.scala 37:30]
+    node _T_6 = eq(UInt<1>("h1"), _T_4) @[Conditional.scala 37:30]
+    node _T_7 = add(mf_upper, mcd) @[Booth8Cycle.scala 59:32]
+    node _T_8 = tail(_T_7, 1) @[Booth8Cycle.scala 59:32]
+    node _T_9 = eq(UInt<2>("h2"), _T_4) @[Conditional.scala 37:30]
+    node _T_10 = add(mf_upper, mcd) @[Booth8Cycle.scala 62:32]
+    node _T_11 = tail(_T_10, 1) @[Booth8Cycle.scala 62:32]
+    node _T_12 = eq(UInt<2>("h3"), _T_4) @[Conditional.scala 37:30]
+    node _T_13 = shl(mcd, 1) @[Booth8Cycle.scala 65:39]
+    node _T_14 = add(mf_upper, _T_13) @[Booth8Cycle.scala 65:32]
+    node _T_15 = tail(_T_14, 1) @[Booth8Cycle.scala 65:32]
+    node _T_16 = eq(UInt<3>("h4"), _T_4) @[Conditional.scala 37:30]
+    node _T_17 = shl(mcd, 1) @[Booth8Cycle.scala 68:39]
+    node _T_18 = sub(mf_upper, _T_17) @[Booth8Cycle.scala 68:32]
+    node _T_19 = tail(_T_18, 1) @[Booth8Cycle.scala 68:32]
+    node _T_20 = eq(UInt<3>("h5"), _T_4) @[Conditional.scala 37:30]
+    node _T_21 = sub(mf_upper, mcd) @[Booth8Cycle.scala 71:32]
+    node _T_22 = tail(_T_21, 1) @[Booth8Cycle.scala 71:32]
+    node _T_23 = eq(UInt<3>("h6"), _T_4) @[Conditional.scala 37:30]
+    node _T_24 = sub(mf_upper, mcd) @[Booth8Cycle.scala 74:32]
+    node _T_25 = tail(_T_24, 1) @[Booth8Cycle.scala 74:32]
+    node _T_26 = eq(UInt<3>("h7"), _T_4) @[Conditional.scala 37:30]
+    node _GEN_0 = mux(_T_23, _T_25, mf_upper) @[Conditional.scala 39:67]
+    node _GEN_1 = mux(_T_20, _T_22, _GEN_0) @[Conditional.scala 39:67]
+    node _GEN_2 = mux(_T_16, _T_19, _GEN_1) @[Conditional.scala 39:67]
+    node _GEN_3 = mux(_T_12, _T_15, _GEN_2) @[Conditional.scala 39:67]
+    node _GEN_4 = mux(_T_9, _T_11, _GEN_3) @[Conditional.scala 39:67]
+    node _GEN_5 = mux(_T_6, _T_8, _GEN_4) @[Conditional.scala 39:67]
+    node _GEN_6 = mux(_T_5, mf_upper, _GEN_5) @[Conditional.scala 40:58]
+    node _T_27 = bits(mf_lower, 0, 0) @[Booth8Cycle.scala 81:29]
+    node _T_28 = bits(mf_upper, 0, 0) @[Booth8Cycle.scala 82:33]
+    node _T_29 = bits(mf_lower, 15, 1) @[Booth8Cycle.scala 82:46]
+    node _T_30 = cat(_T_28, _T_29) @[Cat.scala 29:58]
+    node _T_31 = bits(mf_upper, 15, 15) @[Booth8Cycle.scala 83:33]
+    node _T_32 = bits(mf_upper, 15, 1) @[Booth8Cycle.scala 83:47]
+    node _T_33 = cat(_T_31, _T_32) @[Cat.scala 29:58]
+    node _T_34 = add(iter, UInt<1>("h1")) @[Booth8Cycle.scala 84:26]
+    node _T_35 = tail(_T_34, 1) @[Booth8Cycle.scala 84:26]
+    node _GEN_7 = mux(_T_2, _T_33, mf_upper) @[Booth8Cycle.scala 46:24]
+    node _GEN_8 = mux(_T_2, _T_27, mf_last) @[Booth8Cycle.scala 46:24]
+    node _GEN_9 = mux(_T_2, _T_30, mf_lower) @[Booth8Cycle.scala 46:24]
+    node _GEN_10 = mux(_T_2, _T_35, iter) @[Booth8Cycle.scala 46:24]
+    node _GEN_11 = mux(_T_2, UInt<1>("h0"), UInt<1>("h1")) @[Booth8Cycle.scala 46:24]
+    node _GEN_12 = mux(io_reset, UInt<1>("h0"), _GEN_7) @[Booth8Cycle.scala 35:19]
+    node _GEN_13 = mux(io_reset, io_multiplier, _GEN_9) @[Booth8Cycle.scala 35:19]
+    node _GEN_14 = mux(io_reset, UInt<1>("h0"), _GEN_8) @[Booth8Cycle.scala 35:19]
+    node _GEN_15 = mux(io_reset, io_multiplicand, mcd) @[Booth8Cycle.scala 35:19]
+    node _GEN_16 = mux(io_reset, io_multiplier, mpl) @[Booth8Cycle.scala 35:19]
+    node _GEN_17 = mux(io_reset, UInt<1>("h0"), _GEN_10) @[Booth8Cycle.scala 35:19]
+    node _GEN_18 = mux(io_reset, UInt<1>("h0"), _GEN_11) @[Booth8Cycle.scala 35:19]
+    node _T_upper = UInt<16>("h0") @[Booth8Cycle.scala 23:33 Booth8Cycle.scala 23:33]
+    node _T_lower = UInt<16>("h0") @[Booth8Cycle.scala 23:33 Booth8Cycle.scala 23:33]
+    node _T_last = UInt<1>("h0") @[Booth8Cycle.scala 23:33 Booth8Cycle.scala 23:33]
+    io_finished <= _GEN_18 @[Booth8Cycle.scala 32:15 Booth8Cycle.scala 88:19]
+    io_product <= _T_1 @[Booth8Cycle.scala 31:15]
+    mf_upper <= mux(reset, _T_upper, _GEN_12) @[Booth8Cycle.scala 36:22 Booth8Cycle.scala 59:20 Booth8Cycle.scala 62:20 Booth8Cycle.scala 65:20 Booth8Cycle.scala 68:20 Booth8Cycle.scala 71:20 Booth8Cycle.scala 74:20 Booth8Cycle.scala 83:18]
+    mf_lower <= mux(reset, _T_lower, _GEN_13) @[Booth8Cycle.scala 37:22 Booth8Cycle.scala 82:18]
+    mf_last <= mux(reset, _T_last, _GEN_14) @[Booth8Cycle.scala 38:22 Booth8Cycle.scala 81:18]
+    mcd <= mux(reset, UInt<16>("h0"), _GEN_15) @[Booth8Cycle.scala 39:18]
+    mpl <= mux(reset, UInt<16>("h0"), _GEN_16) @[Booth8Cycle.scala 40:18]
+    iter <= mux(reset, UInt<4>("h0"), _GEN_17) @[Booth8Cycle.scala 41:18 Booth8Cycle.scala 84:18]

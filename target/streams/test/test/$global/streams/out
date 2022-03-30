@@ -1,0 +1,31 @@
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.LargeApplicationsLocalTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.GlobalPredictorUnitTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.LocalPredictorUnitTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.SmallApplicationsLocalTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.SmallApplicationsGlobalTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.LargeApplicationsTakenTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.SmallApplicationsTakenTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.LargeApplicationsNotTakenTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.LargeApplicationsGlobalTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(dinocpu.SmallApplicationsNotTakenTesterLab4, org.scalatest.tools.Framework$$anon$1@54d7f585, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mSummary for ScalaCheck not available.[0m
+[0m[[0m[0minfo[0m] [0m[0mScalaTest[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 1 minute, 29 seconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 51[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 10, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 40, failed 11, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 11 TESTS FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed: Total 51, Failed 11, Errors 0, Passed 40[0m
+[0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.SmallApplicationsNotTakenTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.LargeApplicationsNotTakenTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.LargeApplicationsTakenTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.SmallApplicationsLocalTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.LargeApplicationsLocalTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.SmallApplicationsTakenTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.SmallApplicationsGlobalTesterLab4[0m
+[0m[[0m[0mdebug[0m] [0m[0m	dinocpu.LargeApplicationsGlobalTesterLab4[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	dinocpu.GlobalPredictorUnitTesterLab4[0m
+[0m[[0m[31merror[0m] [0m[0m	dinocpu.LocalPredictorUnitTesterLab4[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

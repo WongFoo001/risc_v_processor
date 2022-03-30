@@ -1,0 +1,22 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mLocalPredictorUnitTesterLab4:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal Branch predictor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for 2-bit saturating counter tests *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:31)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal Branch predictor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for 3-bit saturating counter tests *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:60)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal branch predictor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for multiple addresses *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:77)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal branch predictor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for aliased addresses *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:91)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal branch predictory[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for random 2-bit 8 entry tests *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:101)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal branch predictory[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for random 1-bit 2 entry tests *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:110)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLocal branch predictory[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should match expectations for random 3-bit 256 entry tests *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  false was not true (Lab4Tests.scala:119)[0m[0m

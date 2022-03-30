@@ -1,0 +1,34 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~Booth8Cycle|Booth8Cycle>io_product",
+    "sources":[
+      "~Booth8Cycle|Booth8Cycle>io_start",
+      "~Booth8Cycle|Booth8Cycle>io_finished",
+      "~Booth8Cycle|Booth8Cycle>io_multiplier",
+      "~Booth8Cycle|Booth8Cycle>io_multiplicand"
+    ]
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  },
+  {
+    "class":"firrtl.options.TargetDirAnnotation",
+    "directory":"test_run_dir/dinocpu.MulEightCycleComponentTesterMult129093260"
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.LowFirrtlEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"test_run_dir/dinocpu.MulEightCycleComponentTesterMult129093260"
+  },
+  {
+    "class":"firrtl.options.OutputAnnotationFileAnnotation",
+    "file":"Booth8Cycle"
+  }
+]

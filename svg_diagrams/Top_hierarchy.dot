@@ -1,0 +1,195 @@
+digraph Top_hierarchy { rankdir="TB" 
+ node [shape="rectangle"]; 
+rankdir="LR" 
+stylesheet = "styles.css"
+module_1 [shape= "plaintext" href="Top.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > Top </TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_2" BGCOLOR="#FFF8DC" >mem</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_3" BGCOLOR="#FFF8DC" >cpu</TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_2 [shape= "plaintext" href="DualPortedMemory.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > DualPortedMemory </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_3 [shape= "plaintext" href="PipelinedCPU.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > PipelinedCPU </TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_6" BGCOLOR="#FFF8DC" >alu</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_13" BGCOLOR="#FFF8DC" >aluControl</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_12" BGCOLOR="#FFF8DC" >branchAdd</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_4" BGCOLOR="#FFF8DC" >pcPlusFour</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_5" BGCOLOR="#FFF8DC" >branchCtrl</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_9" BGCOLOR="#FFF8DC" >control</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_7" BGCOLOR="#FFF8DC" >forwarding</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_10" BGCOLOR="#FFF8DC" >hazard</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_8" BGCOLOR="#FFF8DC" >immGen</TD>
+  </TR>
+        
+  <TR>
+    <TD PORT="module_11" BGCOLOR="#FFF8DC" >registers</TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_4 [shape= "plaintext" href="Adder.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > Adder </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_5 [shape= "plaintext" href="BranchControl.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > BranchControl </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_6 [shape= "plaintext" href="ALU.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > ALU </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_7 [shape= "plaintext" href="ForwardingUnit.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > ForwardingUnit </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_8 [shape= "plaintext" href="ImmediateGenerator.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > ImmediateGenerator </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_9 [shape= "plaintext" href="Control.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > Control </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_10 [shape= "plaintext" href="HazardUnit.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > HazardUnit </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_11 [shape= "plaintext" href="RegisterFile.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > RegisterFile </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_12 [shape= "plaintext" href="Adder.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > Adder </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_13 [shape= "plaintext" href="ALUControl.dot.svg" label=<
+
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
+      
+  <TR >
+    <TD BGCOLOR="#FFDEAD" > ALUControl </TD>
+  </TR>
+        
+</TABLE>>];
+
+      module_1:module_2 -> module_2
+module_3:module_4 -> module_4
+module_3:module_5 -> module_5
+module_3:module_6 -> module_6
+module_3:module_7 -> module_7
+module_3:module_8 -> module_8
+module_3:module_9 -> module_9
+module_3:module_10 -> module_10
+module_3:module_11 -> module_11
+module_3:module_12 -> module_12
+module_3:module_13 -> module_13
+module_1:module_3 -> module_3
+}

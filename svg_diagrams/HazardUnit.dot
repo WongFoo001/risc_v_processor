@@ -1,0 +1,250 @@
+digraph HazardUnit {
+stylesheet = "styles.css"
+rankdir="LR" 
+
+subgraph cluster_HazardUnit {
+  label="HazardUnit"
+  URL=""
+  bgcolor="#FFF8DC"
+  cluster_HazardUnit_io_rs1 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_rs1" rank="0"]
+     
+cluster_HazardUnit_io_rs2 [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_rs2" rank="0"]
+     
+cluster_HazardUnit_io_idex_memread [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_idex_memread" rank="0"]
+     
+cluster_HazardUnit_io_idex_rd [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_idex_rd" rank="0"]
+     
+cluster_HazardUnit_io_exmem_taken [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_exmem_taken" rank="0"]
+     
+cluster_HazardUnit_io_pcwrite [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_pcwrite" rank="1000"]
+     
+cluster_HazardUnit_io_ifid_bubble [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_ifid_bubble" rank="1000"]
+     
+cluster_HazardUnit_io_idex_bubble [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_idex_bubble" rank="1000"]
+     
+cluster_HazardUnit_io_exmem_bubble [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_exmem_bubble" rank="1000"]
+     
+cluster_HazardUnit_io_ifid_flush [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_ifid_flush" rank="1000"]
+     
+cluster_HazardUnit__T [label = "_T" shape="rectangle"]; 
+
+op_eq_361 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_1762780776 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">1</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_576862898 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">2</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">0</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_362 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_or_363 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_364 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+mux_2021097234 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#AFEEEE">
+  <TR>
+    <TD PORT="in1">0</TD>
+    <TD ROWSPAN="2" PORT="select">a?</TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_365 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_or_366 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_367 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_or_368 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_and_369 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > and </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_or_370 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > or </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+op_eq_371 [shape = "plaintext" label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#D8BFD8">
+  <TR>
+    <TD PORT="in1">&#x25cf;</TD>
+    <TD ROWSPAN="2" > eq </TD>
+    <TD ROWSPAN="2" PORT="out">&#x25cf;</TD>
+  </TR>
+  <TR>
+    <TD PORT="in2">&#x25cf;</TD>
+  </TR>
+</TABLE>>];
+       
+
+  cluster_HazardUnit_io_idex_rd -> op_eq_364:in1
+  cluster_HazardUnit_io_rs2 -> op_eq_371:in2
+  cluster_HazardUnit_io_idex_memread -> op_and_362:in1
+  op_eq_367:out -> op_or_366:in2
+  cluster_HazardUnit_io_exmem_taken -> op_or_368:in1
+  cluster_HazardUnit_io_idex_rd -> op_eq_361:in1
+  mux_1762780776:out -> cluster_HazardUnit_io_pcwrite
+  op_and_362:out -> mux_576862898:select
+  cluster_HazardUnit__T -> op_or_370:in1
+  mux_576862898:out -> mux_1762780776:in2
+  op_eq_361:out -> cluster_HazardUnit__T
+  op_or_366:out -> op_and_365:in2
+  cluster_HazardUnit_io_idex_rd -> op_eq_371:in1
+  op_or_370:out -> op_and_369:in2
+  op_eq_364:out -> op_or_363:in2
+  cluster_HazardUnit_io_rs2 -> op_eq_367:in2
+  cluster_HazardUnit__T -> op_or_366:in1
+  cluster_HazardUnit_io_rs2 -> op_eq_364:in2
+  mux_2021097234:out -> cluster_HazardUnit_io_ifid_bubble
+  cluster_HazardUnit_io_exmem_taken -> cluster_HazardUnit_io_exmem_bubble
+  op_and_365:out -> mux_2021097234:in2
+  cluster_HazardUnit_io_exmem_taken -> cluster_HazardUnit_io_ifid_flush
+  op_or_363:out -> op_and_362:in2
+  op_or_368:out -> cluster_HazardUnit_io_idex_bubble
+  cluster_HazardUnit_io_idex_rd -> op_eq_367:in1
+  cluster_HazardUnit_io_exmem_taken -> mux_2021097234:select
+  cluster_HazardUnit_io_idex_memread -> op_and_365:in1
+  cluster_HazardUnit_io_idex_memread -> op_and_369:in1
+  op_and_369:out -> op_or_368:in2
+  cluster_HazardUnit__T -> op_or_363:in1
+  cluster_HazardUnit_io_exmem_taken -> mux_1762780776:select
+  cluster_HazardUnit_io_rs1 -> op_eq_361:in2
+  op_eq_371:out -> op_or_370:in2
+  
+  
+}
+     
+}

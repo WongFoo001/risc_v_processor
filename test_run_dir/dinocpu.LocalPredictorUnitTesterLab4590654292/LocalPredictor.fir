@@ -1,0 +1,47 @@
+;buildInfoPackage: chisel3, version: 3.2.6, scalaVersion: 2.12.10, sbtVersion: 1.3.2
+circuit LocalPredictor : 
+  module LocalPredictor : 
+    input clock : Clock
+    input reset : UInt<1>
+    output io : {flip pc : UInt<32>, flip update : UInt<1>, flip taken : UInt<1>, prediction : UInt<1>}
+    
+    wire _T : UInt<3>[32] @[branchpred.scala 36:40]
+    _T[0] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[1] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[2] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[3] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[4] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[5] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[6] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[7] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[8] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[9] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[10] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[11] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[12] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[13] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[14] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[15] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[16] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[17] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[18] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[19] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[20] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[21] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[22] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[23] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[24] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[25] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[26] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[27] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[28] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[29] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[30] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    _T[31] <= UInt<3>("h04") @[branchpred.scala 36:40]
+    reg predictionTable : UInt<3>[32], clock with : (reset => (reset, _T)) @[branchpred.scala 36:32]
+    io.prediction is invalid @[branchpred.scala 78:6]
+    io.taken is invalid @[branchpred.scala 78:6]
+    io.update is invalid @[branchpred.scala 78:6]
+    io.pc is invalid @[branchpred.scala 78:6]
+    io.prediction <= UInt<1>("h00") @[branchpred.scala 79:17]
+    

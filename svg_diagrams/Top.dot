@@ -1,0 +1,222 @@
+digraph Top {
+stylesheet = "styles.css"
+rankdir="LR" 
+
+subgraph cluster_Top {
+  label="Top"
+  URL=""
+  bgcolor="#FFF8DC"
+  cluster_Top_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_Top_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_Top_io_success [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_success" rank="1000"]
+     
+
+subgraph cluster_Top_cpu {
+  label="cpu"
+  URL="PipelinedCPU.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_Top_cpu_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_Top_cpu_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_Top_cpu_io_imem_instruction [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_imem_instruction" rank="0"]
+     
+cluster_Top_cpu_io_dmem_readdata [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_readdata" rank="0"]
+     
+cluster_Top_cpu_io_imem_address [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_imem_address" rank="1000"]
+     
+cluster_Top_cpu_io_dmem_address [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_address" rank="1000"]
+     
+cluster_Top_cpu_io_dmem_writedata [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_writedata" rank="1000"]
+     
+cluster_Top_cpu_io_dmem_memread [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_memread" rank="1000"]
+     
+cluster_Top_cpu_io_dmem_memwrite [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_memwrite" rank="1000"]
+     
+cluster_Top_cpu_io_dmem_maskmode [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_maskmode" rank="1000"]
+     
+cluster_Top_cpu_io_dmem_sext [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_sext" rank="1000"]
+     
+
+subgraph cluster_Top_cpu_control {
+  label="control"
+  URL="Control.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_branchCtrl {
+  label="branchCtrl"
+  URL="BranchControl.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_registers {
+  label="registers"
+  URL="RegisterFile.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_aluControl {
+  label="aluControl"
+  URL="ALUControl.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_alu {
+  label="alu"
+  URL="ALU.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_immGen {
+  label="immGen"
+  URL="ImmediateGenerator.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_pcPlusFour {
+  label="pcPlusFour"
+  URL="Adder.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_branchAdd {
+  label="branchAdd"
+  URL="Adder.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_forwarding {
+  label="forwarding"
+  URL="ForwardingUnit.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_cpu_hazard {
+  label="hazard"
+  URL="HazardUnit.dot.svg"
+  bgcolor="#FFB6C1"
+  
+
+  
+  
+  
+}
+     
+
+  
+  
+  
+}
+     
+
+subgraph cluster_Top_mem {
+  label="mem"
+  URL="DualPortedMemory.dot.svg"
+  bgcolor="#ADD8E6"
+  cluster_Top_mem_clock [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="clock" rank="0"]
+     
+cluster_Top_mem_reset [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="reset" rank="0"]
+     
+cluster_Top_mem_io_imem_address [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_imem_address" rank="0"]
+     
+cluster_Top_mem_io_dmem_address [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_address" rank="0"]
+     
+cluster_Top_mem_io_dmem_writedata [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_writedata" rank="0"]
+     
+cluster_Top_mem_io_dmem_memread [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_memread" rank="0"]
+     
+cluster_Top_mem_io_dmem_memwrite [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_memwrite" rank="0"]
+     
+cluster_Top_mem_io_dmem_maskmode [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_maskmode" rank="0"]
+     
+cluster_Top_mem_io_dmem_sext [shape = "rectangle" style="filled" fillcolor="#CCCCCC" label="io_dmem_sext" rank="0"]
+     
+cluster_Top_mem_io_imem_instruction [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_imem_instruction" rank="1000"]
+     
+cluster_Top_mem_io_dmem_readdata [shape = "rectangle" style="filled" fillcolor="#E0FFFF" label="io_dmem_readdata" rank="1000"]
+     
+
+  
+  
+  
+}
+     
+cluster_Top_lit1 [shape="circle" style="filled" BGCOLOR="#C0C0C0" label="0"]
+     
+
+  cluster_Top_cpu_io_dmem_sext -> cluster_Top_mem_io_dmem_sext
+  cluster_Top_clock -> cluster_Top_cpu_clock
+  cluster_Top_lit1 -> cluster_Top_io_success
+  cluster_Top_cpu_io_dmem_writedata -> cluster_Top_mem_io_dmem_writedata
+  cluster_Top_reset -> cluster_Top_cpu_reset
+  cluster_Top_cpu_io_imem_address -> cluster_Top_mem_io_imem_address
+  cluster_Top_mem_io_imem_instruction -> cluster_Top_cpu_io_imem_instruction
+  cluster_Top_cpu_io_dmem_address -> cluster_Top_mem_io_dmem_address
+  cluster_Top_clock -> cluster_Top_mem_clock
+  cluster_Top_cpu_io_dmem_memwrite -> cluster_Top_mem_io_dmem_memwrite
+  cluster_Top_mem_io_dmem_readdata -> cluster_Top_cpu_io_dmem_readdata
+  cluster_Top_reset -> cluster_Top_mem_reset
+  cluster_Top_cpu_io_dmem_maskmode -> cluster_Top_mem_io_dmem_maskmode
+  cluster_Top_cpu_io_dmem_memread -> cluster_Top_mem_io_dmem_memread
+  
+  
+}
+     
+}

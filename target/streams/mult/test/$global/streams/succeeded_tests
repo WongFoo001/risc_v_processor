@@ -1,0 +1,14 @@
+#Successful Tests
+#Mon May 25 16:38:38 PDT 2020
+dinocpu.RTypeMultiCycleTesterMult=1590449907358
+dinocpu.ITypeMultiCycleTesterMult=1590449892947
+dinocpu.MemoryMultiCycleTesterMult=1590449892842
+dinocpu.JumpTesterMult=1590449899083
+dinocpu.MulEightCycleTesterMult=1590449896171
+dinocpu.ITypeTesterMult=1590449910798
+dinocpu.BranchTesterMult=1590449918099
+dinocpu.MemoryTesterMult=1590449909668
+dinocpu.RTypeTesterMult=1590449913740
+dinocpu.UTypeTesterMult=1590449905959
+dinocpu.MulEightCycleComponentTesterMult=1590449892742
+dinocpu.ALUControlTesterMult=1590449896885

@@ -1,0 +1,8 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mLargeApplicationsNotTakenTesterLab4:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPipelined CPU with an always not taken predictor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should run application multiply.riscv[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should run application median.riscv[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should run application qsort.riscv[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should run application rsort.riscv[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should run application towers.riscv[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should run application vvadd.riscv[0m[0m

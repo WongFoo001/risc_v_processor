@@ -1,0 +1,63 @@
+test
+Lab3 / test
+Lab5 / test
+exit 
+testOnly dinocpu.ALUControlTester
+Lab5 / testOnly dinocpu.ALUControlTesterLab5
+Mult / testOnly dinocpu.MulSingleCycleTesterMult
+exit
+Mult / testOnly dinocpu.MulSingleCycleTesterMult
+exit
+Mult / testOnly dinocpu.MulSingleCycleTesterMult
+exit
+mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+Mult / testOnly dinocpu.MulSingleCycleTesterMult
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+clear
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+Mult / test
+Mult / testOnly dinocpu.RTypeTesterMult
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+Mult / testOnly dinocpu.RTypeTesterMult
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+exit
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+Mult / testOnly dinocpu.ALUControlTesterMult
+Mult / testOnly dinocpu.MulEightCycleComponentTesterMult
+Mult / testOnly dinocpu.ALUControlTesterMult
+Mult / testOnly dinocpu.SingleCycleTesterMult
+Mult / testOnly dinocpu.EightCycleTesterMult
+Mult / testOnly dinocpu.MulEightCycleTesterMult
+exit
+Mult / tes
+Mult / test
+Mult / testOnly dinocpu.BranchTesterMult
+Mult / testOnly dinocpu.BranchTesterMult -- -z beq-False
+Mult / testOnly dinocpu.ALUControlTesterMult
+Mult / testOnly dinocpu.BranchTesterMult -- -z beq-False
+Mult / testOnly dinocpu.BranchTesterMult
+Mult / test
+Mult / testOnly dinocpu.ALUControlTesterMult
+Mult / test
+exit
+Mult / test
+exit
+Mult / testOnly dinocpu.MulEightCycleTesterMult
+exit
+Mult / test
+exit
+compile
+exit
